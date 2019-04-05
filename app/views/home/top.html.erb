@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a href="#" class="navbar-brand"><%= link_to "INSTA CLONE", "/" %></a>
+  <%= link_to "INSTA CLONE", "/", class:"navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,11 +22,9 @@
   </div>
 </nav> 
 
-
 <div class="landing">
   <div class="home-wrap">
     <div class="home-inner">
-
     </div>
   </div>
 </div> 
@@ -44,11 +42,103 @@
   <% end %>
 </div>
 
+<div class="instacard-container">
+  <div class="card">
+    <div class="card-header">        
+      <div class="profile-info">
+        <div class="name">Takuho Tada</div>
+        <div class="location">Tokyo, Japan</div>
+      </div>
+      <div class="following-btn">
+            <%= link_to "フォローする", "#", class: "btn btn-outline-info btn-sm" %>
+      </div>
+      <div class="time">
+        1h ago
+      </div>
+    </div>
+    <div class="content">
+      <%= image_tag('sample1.jpg')%>
+    </div>
+    <div class="card-footer">
+      <div class="likes">
+        21 likes
+      </div>
+      <div class="heart">
+        ♡
+      </div>
+      <div class="description">
+        <p>
+          <span class="username">Takuho Tada</span>Hey just out here in miami beach with the squad
+        </p>
+      </div>
+      <hr />
+      <div class="comments">
+        <p>
+          <span class="username">takuho tada</span>Hey just out here in miami beach with the squad
+        </p>
+        <p>
+          <span class="username">ai</span>Hey just out here in miami beach with the squad
+        </p>
+      </div>
+      <form class="form">
+        <div class="add-comment">
+          <input type="text" placeholder="Add a comment...">
+        </div>
+        <div class="options">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">        
+      <div class="profile-info">
+        <div class="name">Takuho Tada</div>
+        <div class="location">Tokyo, Japan</div>
+      </div>
+      <div class="time">
+        1h ago
+      </div>
+    </div>
+    <div class="content">
+      <%= image_tag('sample2.jpg')%>
+    </div>
+    <div class="card-footer">
+      <div class="likes">
+        21 likes
+      </div>
+      <div class="heart">
+        ♡
+      </div>
+      <div class="description">
+        <p>
+          <span class="username">Takuho Tada</span>Hey just out here in miami beach with the squad
+        </p>
+      </div>
+      <hr />
+      <div class="comments">
+        <p>
+          <span class="username">takuho tada</span>Hey just out here in miami beach with the squad
+        </p>
+        <p>
+          <span class="username">ai</span>Hey just out here in miami beach with the squad
+        </p>
+      </div>
+      <form class="form">
+        <div class="add-comment">
+          <input type="text" placeholder="Add a comment...">
+        </div>
+        <div class="options">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <footer>
   <div class="row justify-content-center">
     <div class="col-md-5 text-center">
-      <img src="img/nuno.png" alt="">
-      <p>samplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesample</p>
       <strong>Contact Info</strong>
       <p>888-8888-8888<br>example@gmail.com</p>
       <a href="#"><i class="fab fa-facebook-square"></i></a>
