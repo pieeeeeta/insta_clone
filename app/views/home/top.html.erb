@@ -14,7 +14,7 @@
     <%= link_to "写真を投稿", "#", class: "btn btn-outline-light btn-lg" %>
   <% else %>
     <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-light btn-lg mb-3" %><br>
-    <%= link_to "Facebookでログイン", "#", class: "btn btn-outline-light btn-lg" %>
+    <%= link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: "btn btn-outline-light btn-lg" %>
   <% end %>
 </div>
 

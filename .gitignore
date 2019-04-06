@@ -27,3 +27,6 @@
 
 # Ignore rubocop file
 /rubocop.yml 
+
+# Ignore ENV
+/.env

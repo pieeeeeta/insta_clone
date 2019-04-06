@@ -17,11 +17,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'bootstrap', '4.3.1'
 gem 'devise', '4.6.2'
+gem 'omniauth', '1.9.0'
+gem 'omniauth-facebook', '5.0.0'
 
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
+  gem 'dotenv-rails', '2.7.2'
 end
 
 group :development do
