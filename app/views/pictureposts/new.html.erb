@@ -1,0 +1,17 @@
+<div class="new_post_page pt-5 mt-5 text-center">
+
+  <h1>写真を投稿する</h1>
+
+  <%= form_for(@picturepost) do |f| %>
+
+    <div class="field">
+      <%= f.text_area :content, placeholder: "テキストを入力してください..." %>
+    </div>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+    <span class="picture">
+      <%= f.file_field :picture %>
+    </span>
+
+  <% end %>
+
+</div>

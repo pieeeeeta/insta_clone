@@ -19,6 +19,10 @@
     </div>
   </div>
 
+  <% @pictureposts.each do |picturepost| %>
+    <%= image_tag picturepost.picture.url if picturepost.picture? %>
+  <% end %>
+
   <div class="container-fluid">
     <div class="row grid">
       <div class="col-4 img-box">

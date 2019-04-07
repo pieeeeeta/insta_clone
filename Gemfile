@@ -19,6 +19,7 @@ gem 'bootstrap', '4.3.1'
 gem 'devise', '4.6.2'
 gem 'omniauth', '1.9.0'
 gem 'omniauth-facebook', '5.0.0'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'sqlite3'
@@ -43,6 +44,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
