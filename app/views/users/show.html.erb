@@ -1,0 +1,46 @@
+<div class="mypage_wrapper pt-5 mt-5 bg-light">
+
+  <div class="row">
+    <div class="col-3 plofile_img_wrapper">
+      <div class="profile_img bg-secondary"></div>
+    </div>
+    <div class="col-9">
+      <div class="username mb-2">
+        <%= @user.username %>
+        <%= link_to "プロフィールを編集", "#", class:"btn btn-outline-secondary btn-sm ml-3" %>
+      </div>
+      <div class="user_post_info mb-1">
+        投稿72件　フォロワー165人 177人をフォロー
+      </div>
+      <div class="user_profile_info">
+        <p><%= @user.name %></p>
+        <p><%= @user.self_introduction %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row grid">
+      <div class="col-4 img-box">
+        <%= image_tag('sample1.jpg')%>
+        <p class="picture-text">sample</p>
+      </div>
+
+      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
+      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
+     
+    </div>
+  </div>
+
+</div>
+
