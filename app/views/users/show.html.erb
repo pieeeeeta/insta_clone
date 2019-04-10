@@ -19,29 +19,21 @@
     </div>
   </div>
 
-  <% @pictureposts.each do |picturepost| %>
-    <%= image_tag picturepost.picture.url if picturepost.picture? %>
-  <% end %>
+  
+    
+  
 
   <div class="container-fluid">
     <div class="row grid">
-      <div class="col-4 img-box">
-        <%= image_tag('sample1.jpg')%>
-        <p class="picture-text">sample</p>
-      </div>
+      <% @pictureposts.each do |picturepost| %>
+        <div class="col-4 img-box">
+          <%= link_to picturepost_path(picturepost) do%>
+            <%= image_tag picturepost.picture.url if picturepost.picture? %>
+          <% end %>
+          <p class="picture-text">sample</p>
+        </div>
+      <% end %>
 
-      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample2.jpg')%></div>
-      <div class="col-4 img-box"><%= image_tag('sample3.jpg')%></div>
      
     </div>
   </div>

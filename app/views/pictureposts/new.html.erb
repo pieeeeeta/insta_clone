@@ -4,14 +4,16 @@
 
   <%= form_for(@picturepost) do |f| %>
 
-    <div class="field">
-      <%= f.text_area :content, placeholder: "テキストを入力してください..." %>
-    </div>
-    <%= f.submit "Post", class: "btn btn-primary" %>
-    <span class="picture">
+    <div class="field picture my-3 mt-5">
       <%= f.file_field :picture %>
-    </span>
+    </div>
 
+    <div class="field my-4">
+      <%= f.text_area :content, placeholder: "コメントを入力してください..." %>
+    </div>
+
+    <%= f.submit "Post", class: "btn btn-secondary btn-lg" %>
+   
   <% end %>
 
 </div>

@@ -1,6 +1,7 @@
 class PicturepostsController < ApplicationController
 
   def show
+    @picturepost = Picturepost.find(params[:id])
   end
 
   def new
