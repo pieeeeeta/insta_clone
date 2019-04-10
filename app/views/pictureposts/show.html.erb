@@ -27,21 +27,22 @@
           </p>
         </div>
         <hr />
+
         <div class="comments">
-          <p>
-            <span class="username">takuho tada</span>Hey just out here in miami beach with the squad
-          </p>
-          <p>
-            <span class="username">ai</span>Hey just out here in miami beach with the squad
-          </p>
+          <% @comments.each do |comment| %>
+            <p>
+              <span class="username"><%= comment.user.username %></span><%= comment.comment %>
+            </p>
+          <% end %>
         </div>
-        <form class="form">
-          <div class="add-comment">
-            <input type="text" placeholder="Add a comment...">
-          </div>
-          <div class="options">
-          </div>
-        </form>
+
+        <% if user_signed_in? %>
+          <%= form_for [@picturepost, @comment] do |f| %>
+            <%= f.text_field :comment %>
+            <%= f.submit 'コメントする', class:"btn btn-outline-secondary btn-sm" %>
+          <% end%>
+        <% end %>
+
       </div>
     </div>
   </div>

@@ -1,7 +1,11 @@
 class PicturepostsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :create, :edit]
+
   def show
     @picturepost = Picturepost.find(params[:id])
+    @comments = @picturepost.comments
+    @comment = Comment.new
   end
 
   def new
