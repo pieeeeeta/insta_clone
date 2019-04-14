@@ -20,95 +20,78 @@
   <% end %>
 </div>
 
-<div class="instacard-container">
-  <div class="card">
-    <div class="card-header">        
-      <div class="profile-info">
-        <div class="name">Takuho Tada</div>
-        <div class="location">Tokyo, Japan</div>
-      </div>
-      <div class="following-btn">
-            <%= link_to "フォローする", "#", class: "btn btn-outline-info btn-sm" %>
-      </div>
-      <div class="time">
-        1h ago
-      </div>
-    </div>
-    <div class="content">
-      <%= image_tag('sample1.jpg')%>
-    </div>
-    <div class="card-footer">
-      <div class="likes">
-        21 likes
-      </div>
-      <div class="heart">
-        ♡
-      </div>
-      <div class="description">
-        <p>
-          <span class="username">Takuho Tada</span>Hey just out here in miami beach with the squad
-        </p>
-      </div>
-      <hr />
-      <div class="comments">
-        <p>
-          <span class="username">takuho tada</span>Hey just out here in miami beach with the squad
-        </p>
-        <p>
-          <span class="username">ai</span>Hey just out here in miami beach with the squad
-        </p>
-      </div>
-      <form class="form">
-        <div class="add-comment">
-          <input type="text" placeholder="Add a comment...">
-        </div>
-        <div class="options">
-        </div>
-      </form>
-    </div>
-  </div>
+<% if user_signed_in? %>
 
-  <div class="card">
-    <div class="card-header">        
-      <div class="profile-info">
-        <div class="name">Takuho Tada</div>
-        <div class="location">Tokyo, Japan</div>
-      </div>
-      <div class="time">
-        1h ago
-      </div>
-    </div>
-    <div class="content">
-      <%= image_tag('sample2.jpg')%>
-    </div>
-    <div class="card-footer">
-      <div class="likes">
-        21 likes
-      </div>
-      <div class="heart">
-        ♡
-      </div>
-      <div class="description">
-        <p>
-          <span class="username">Takuho Tada</span>Hey just out here in miami beach with the squad
-        </p>
-      </div>
-      <hr />
-      <div class="comments">
-        <p>
-          <span class="username">takuho tada</span>Hey just out here in miami beach with the squad
-        </p>
-        <p>
-          <span class="username">ai</span>Hey just out here in miami beach with the squad
-        </p>
-      </div>
-      <form class="form">
-        <div class="add-comment">
-          <input type="text" placeholder="Add a comment...">
+  <div class="instacard-container">
+
+    <% @pictureposts.each do |picturepost|%>
+
+      <div class="card">
+        <div class="card-header">        
+          <div class="profile-info">
+            <%= link_to user_path(picturepost.user) do%>
+              <div class="name"><%= picturepost.user.username %></div>
+            <% end %>
+          </div>
+
+          <% if !current_user?(picturepost.user) %>
+            <% if current_user.following?(picturepost.user)%>
+              <%= form_for(current_user.active_relationships.find_by(followed_id: picturepost.user.id),
+                html: { method: :delete }) do |f| %>
+              <%= f.submit "Unfollow", class: "btn btn-outline-secondary btn-sm" %>
+              <% end %>
+            <% else %>
+              <%= form_for(current_user.active_relationships.build) do |f| %>
+              <div><%= hidden_field_tag :followed_id, picturepost.user.id %></div>
+              <%= f.submit "Follow", class: "btn btn-outline-secondary btn-sm" %>
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <div class="time">
+            1h ago
+          </div>
         </div>
-        <div class="options">
+        <div class="content">
+          <%= link_to picturepost_path(picturepost) do %>
+            <%= image_tag picturepost.picture.url if picturepost.picture? %>
+          <% end %>
         </div>
-      </form>
-    </div>
+        <div class="card-footer">
+          <div class="likes">
+            21 likes
+          </div>
+          <div class="heart">
+            ♡
+          </div>
+          <div class="description">
+            <p>
+              <span class="username"><%= picturepost.user.username %></span><%= picturepost.content %>
+            </p>
+          </div>
+          <hr />
+
+          <div class="comments">
+            <% picturepost.comments.each do |comment| %>
+              <p>
+                <%= link_to user_path(comment.user) do%>
+                  <span class="username"><%= comment.user.username %></span>
+                <% end %>
+                <%= comment.comment %>
+              </p>
+            <% end %>
+          </div>
+
+          <%= form_for [picturepost, @comment] do |f| %>
+            <%= f.text_field :comment %>
+            <%= f.submit 'コメントする', class:"btn btn-outline-secondary btn-sm" %>
+          <% end%>
+
+        </div>
+
+      </div>
+
+    <% end %>
+
   </div>
-</div>
+<% end %>

@@ -9,10 +9,24 @@
     <div class="col-9">
       <div class="username mb-2">
         <%= @user.username %>
-        <%= link_to "プロフィールを編集", "#", class:"btn btn-outline-secondary btn-sm ml-3" %>
+        <% if current_user?(@user) %>
+          <%= link_to "プロフィールを編集", "#", class:"btn btn-outline-secondary btn-sm ml-3" %>
+        <% else %>
+          <% if current_user.following?(@user)%>
+            <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+             html: { method: :delete }) do |f| %>
+            <%= f.submit "Unfollow", class: "btn btn-outline-secondary btn-sm" %>
+            <% end %>
+          <% else %>
+            <%= form_for(current_user.active_relationships.build) do |f| %>
+            <div><%= hidden_field_tag :followed_id, @user.id %></div>
+            <%= f.submit "Follow", class: "btn btn-outline-secondary btn-sm" %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
       <div class="user_post_info mb-1">
-        投稿72件　フォロワー165人 177人をフォロー
+        投稿<%= @pictureposts.count %>件  フォロワー<%= @user.followers.count %>人  <%= @user.following.count %>人をフォロー
       </div>
       <div class="user_profile_info">
         <p><%= @user.name %></p>
@@ -32,7 +46,6 @@
           <%= link_to picturepost_path(picturepost) do%>
             <%= image_tag picturepost.picture.url if picturepost.picture? %>
           <% end %>
-          <p class="picture-text">sample</p>
         </div>
       <% end %>
 

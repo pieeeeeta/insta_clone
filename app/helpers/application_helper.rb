@@ -9,4 +9,8 @@ module ApplicationHelper
     end
   end
 
+  #与えられたユーザーがログイン中のユーザーかどうかを判定する
+  def current_user?(user)
+    user == current_user
+  end
 end

@@ -198,6 +198,9 @@ hr.socket {
         width: 8%;
         font-size: 20px;
       }
+      a{
+        color: #000;
+      }
       .form{
         padding-top: 15px;
         .add-comment{
@@ -275,5 +278,14 @@ hr.socket {
   }
   
 }
+
+/*--- follow unfollow btn --*/
+
+.edit_relationship,
+.new_relationship{
+  display: inline-block;
+}
+
+
 
 

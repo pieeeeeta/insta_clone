@@ -5,9 +5,9 @@
     <div class="card mt-5">
       <div class="card-header">        
         <div class="profile-info">
-          <div class="name">
-            <%= @picturepost.user.username %>
-          </div>
+          <%= link_to user_path(@picturepost.user) do%>
+            <div class="name"><%= @picturepost.user.username %></div>
+          <% end %>
         </div>
         <div class="time">
           1h ago
@@ -33,7 +33,10 @@
         <div class="comments">
           <% @comments.each do |comment| %>
             <p>
-              <span class="username"><%= comment.user.username %></span><%= comment.comment %>
+              <%= link_to user_path(comment.user) do%>
+                <span class="username"><%= comment.user.username %></span>
+              <% end %>
+              <%= comment.comment %>
             </p>
           <% end %>
         </div>
