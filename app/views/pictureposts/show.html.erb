@@ -23,6 +23,11 @@
         <div class="heart">
           ♡
         </div>
+
+        <% if current_user?(@picturepost.user) %>
+          <%= link_to "削除", picturepost_path, method: :delete, class: "btn btn-outline-secondary btn-sm"%>
+        <% end %>
+
         <div class="description">
           <p>
             <span class="username"><%= @picturepost.user.username %></span><%= @picturepost.content %>
