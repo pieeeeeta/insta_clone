@@ -43,7 +43,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def profile_update
     current_user.assign_attributes(account_update_params)
     if current_user.save
-      redirect_to user_path(current_user), notice: "プロフィールを更新しました。"
+      redirect_to user_path(current_user), flash: {success: "プロフィールを更新しました！"}
     else
       render "profile_edit"
     end    

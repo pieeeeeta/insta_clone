@@ -16,11 +16,13 @@ class PicturepostsController < ApplicationController
   def create
     @picturepost = Picturepost.new(content: picturepost_params[:content], picture: picturepost_params[:picture], user_id: current_user.id)
     @picturepost.save
-    redirect_to root_url
+    flash[:success] = "写真を投稿しました！"
+    redirect_to user_url(current_user)
   end
 
   def destroy
     @picturepost.destroy
+    flash[:danger] = "写真を削除しました！"
     redirect_to user_path(@picturepost.user)
   end
 
