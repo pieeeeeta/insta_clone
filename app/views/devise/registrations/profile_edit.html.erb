@@ -1,0 +1,54 @@
+<div class="profile_edit_wrapper pt-5 mt-5 text-center">
+
+  <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
+    <p>公開情報</p>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :username %><br />
+      <%= f.text_field :username %>
+    </div>
+
+    <div class="field">
+      <%= f.label :website %><br />
+      <%= f.text_field :website %>
+    </div>
+
+    <div class="field">
+      <%= f.label :self_introduction %><br />
+      <%= f.text_area :self_introduction %>
+    </div>
+
+    <p>非公開情報</p>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :tel %><br />
+      <%= f.text_field :tel %>
+    </div>
+
+    <div class="field">
+      <%= f.radio_button(:gender, "男性") %>
+      <%= f.label(:gender, "男性", value: 0) %>
+      <%= f.radio_button(:gender, "女性") %>
+      <%= f.label(:gender, "女性", value: 1) %>
+      <%= f.radio_button(:gender, "その他") %>
+      <%= f.label(:gender, "その他", value: 2) %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "Update", class: "btn btn-outline-secondary mt-3" %>
+    </div>
+
+    <%= link_to "パスワードの変更", edit_user_password_path %>
+  <% end %>
+
+</div>

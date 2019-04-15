@@ -25,7 +25,7 @@
         </div>
 
         <% if current_user?(@picturepost.user) %>
-          <%= link_to "削除", picturepost_path, method: :delete, class: "btn btn-outline-secondary btn-sm"%>
+          <%= link_to "削除", picturepost_path, method: :delete, class: "btn btn-outline-secondary btn-sm", data: { confirm: "削除しますか?" }%>
         <% end %>
 
         <div class="description">
