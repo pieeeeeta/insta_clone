@@ -7,7 +7,7 @@ class CreateLikes < ActiveRecord::Migration[5.2]
 
       t.index :user_id
       t.index :picturepost_id
-      t.index [:user_id, :micropost_id], unique: true
+      t.index [:user_id, :picturepost_id], unique: true
     end
   end
 end
