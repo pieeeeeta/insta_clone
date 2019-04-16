@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'pictureposts/new'
-  get 'pictureposts/show'
-  get 'users/show'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
     get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'
@@ -17,7 +14,6 @@ Rails.application.routes.draw do
   resources :pictureposts do
     resources :comments, only: [:create]
   end
-
   post '/like/:picturepost_id', to: 'likes#like', as: 'like'
   delete '/like/:picturepost_id', to: 'likes#unlike', as: 'unlike'
   root 'home#top'

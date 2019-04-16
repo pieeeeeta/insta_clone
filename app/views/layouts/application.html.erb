@@ -18,11 +18,11 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <%= link_to "News", pictureposts_path, class: "nav-link" %>
-          </li>  
+        <ul class="navbar-nav ml-auto">           
           <% if user_signed_in?%>
+            <li class="nav-item">
+            <%= link_to "News", pictureposts_path, class: "nav-link" %>
+            </li> 
             <li class="nav-item">
               <%= link_to "Mypage", user_path(current_user), class: "nav-link" %>
             </li>

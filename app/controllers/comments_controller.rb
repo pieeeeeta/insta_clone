@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   before_action :authenticate_user!
 
   def create
@@ -10,7 +9,7 @@ class CommentsController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
-    end    
+    end
   end
 
   private
