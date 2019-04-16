@@ -1,7 +1,7 @@
 class CreateLikes < ActiveRecord::Migration[5.2]
   def change
     create_table :likes do |t|
-      t.integer :use_id, null: false
+      t.integer :user_id, null: false
       t.integer :picturepost_id, null: false
       t.timestamps
 

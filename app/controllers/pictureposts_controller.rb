@@ -3,6 +3,10 @@ class PicturepostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
   before_action :correct_user, only: :destroy
 
+  def index
+    @pictureposts = Picturepost.all
+  end
+
   def show
     @picturepost = Picturepost.find(params[:id])
     @comments = @picturepost.comments

@@ -37,8 +37,6 @@
 
   <%= render 'layouts/flash_messages' %>
     
-  
-
   <div class="container-fluid">
     <div class="row grid">
       <% @pictureposts.each do |picturepost| %>
@@ -47,9 +45,7 @@
             <%= image_tag picturepost.picture.url if picturepost.picture? %>
           <% end %>
         </div>
-      <% end %>
-
-     
+      <% end %>     
     </div>
   </div>
 

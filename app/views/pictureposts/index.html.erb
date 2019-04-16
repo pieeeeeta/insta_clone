@@ -1,0 +1,11 @@
+  <div class="container-fluid">
+    <div class="row grid">
+      <% @pictureposts.each do |picturepost| %>
+        <div class="col-4 img-box">
+          <%= link_to picturepost_path(picturepost) do%>
+            <%= image_tag picturepost.picture.url if picturepost.picture? %>
+          <% end %>
+        </div>
+      <% end %>     
+    </div>
+  </div>
