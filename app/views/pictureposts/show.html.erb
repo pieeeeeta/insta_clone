@@ -8,26 +8,19 @@
           <%= link_to user_path(@picturepost.user) do%>
             <div class="name"><%= @picturepost.user.username %></div>
           <% end %>
-        </div>
+        </div>        
         <div class="time">
           1h ago
         </div>
+        <% if current_user?(@picturepost.user) %>
+          <%= link_to "削除", picturepost_path, method: :delete, class: "btn btn-outline-secondary btn-sm delete-btn", data: { confirm: "削除しますか?" }%>
+        <% end %>
       </div>
       <div class="content">
         <%= image_tag @picturepost.picture.url if @picturepost.picture? %>
       </div>
       <div class="card-footer">
-        <div class="likes">
-          21 likes
-        </div>
-        <div class="heart">
-          ♡
-        </div>
-
-        <% if current_user?(@picturepost.user) %>
-          <%= link_to "削除", picturepost_path, method: :delete, class: "btn btn-outline-secondary btn-sm", data: { confirm: "削除しますか?" }%>
-        <% end %>
-
+        <%= render partial: 'likes/like', locals: {picturepost: @picturepost} %>
         <div class="description">
           <p>
             <span class="username"><%= @picturepost.user.username %></span><%= @picturepost.content %>

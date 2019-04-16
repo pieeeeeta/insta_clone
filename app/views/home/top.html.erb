@@ -58,12 +58,7 @@
           <% end %>
         </div>
         <div class="card-footer">
-          <div class="likes">
-            21 likes
-          </div>
-          <div class="heart">
-            ♡
-          </div>
+          <%= render partial: 'likes/like', locals: {picturepost: picturepost} %>
           <div class="description">
             <p>
               <span class="username"><%= picturepost.user.username %></span><%= picturepost.content %>

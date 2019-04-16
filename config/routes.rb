@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :pictureposts do
     resources :comments, only: [:create]
   end
+
+  post '/like/:picturepost_id', to: 'likes#like', as: 'like'
+  delete '/like/:picturepost_id', to: 'likes#unlike', as: 'unlike'
   root 'home#top'
   get 'home/top'
 end
