@@ -18,7 +18,10 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">    
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <%= link_to "News", pictureposts_path, class: "nav-link" %>
+          </li>  
           <% if user_signed_in?%>
             <li class="nav-item">
               <%= link_to "Mypage", user_path(current_user), class: "nav-link" %>
@@ -56,3 +59,4 @@
     
   </body>
 </html>
+

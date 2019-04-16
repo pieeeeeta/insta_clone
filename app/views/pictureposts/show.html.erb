@@ -8,7 +8,20 @@
           <%= link_to user_path(@picturepost.user) do%>
             <div class="name"><%= @picturepost.user.username %></div>
           <% end %>
-        </div>        
+        </div>
+        <% if !current_user?(@picturepost.user) %>
+          <% if current_user.following?(@picturepost.user)%>
+            <%= form_for(current_user.active_relationships.find_by(followed_id: @picturepost.user.id),
+              html: { method: :delete }) do |f| %>
+            <%= f.submit "Unfollow", class: "btn btn-outline-secondary btn-sm" %>
+            <% end %>
+          <% else %>
+            <%= form_for(current_user.active_relationships.build) do |f| %>
+            <div><%= hidden_field_tag :followed_id, @picturepost.user.id %></div>
+            <%= f.submit "Follow", class: "btn btn-outline-secondary btn-sm" %>
+            <% end %>
+          <% end %>
+        <% end %>        
         <div class="time">
           1h ago
         </div>

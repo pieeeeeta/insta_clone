@@ -15,6 +15,7 @@
   <% if user_signed_in?%>
     <%= link_to "写真を投稿", new_picturepost_path, class: "btn btn-outline-light btn-lg" %>
   <% else %>
+    <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-light btn-lg mb-3 mr-3" %>
     <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-light btn-lg mb-3" %><br>
     <%= link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: "btn btn-outline-light btn-lg" %>
   <% end %>
