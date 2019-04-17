@@ -50,6 +50,6 @@ class User < ApplicationRecord
   def feed
     following_ids = "SELECT followed_id FROM relationships
     WHERE follower_id = :user_id"
-    Picturepost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
+    Picturepost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id).order('created_at DESC')
   end
 end

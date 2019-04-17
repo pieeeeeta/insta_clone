@@ -30,10 +30,12 @@
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link mr-5" %>
             </li>
           <% end %>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          
+          <%= form_with url:'/pictureposts/search', method: :get, class: "form-inline my-2 my-lg-0", local: true do |f|%>
+            <%= f.text_field :search, class:"form-control mr-sm-2" %>
+            <%= f.submit 'Search', class:"btn btn-outline-secondary my-2 my-sm-0" %>
+          <% end %>
+          
         </ul>
       </div>
     </nav> 
@@ -43,13 +45,9 @@
 
     <footer>
       <div class="row justify-content-center">
-        <div class="col-md-5 text-center">
-          <strong>Contact Info</strong>
-          <p>888-8888-8888<br>example@gmail.com</p>
-          <a href="#"><i class="fab fa-facebook-square"></i></a>
-          <a href="#"><i class="fab fa-twitter-square"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
+        <% if user_signed_in? %>
+          <%= link_to "写真を投稿する", new_picturepost_path, class: "btn btn-outline-light" %>
+        <% end %>
         <hr class="socket">
         &copy; Insta Clone
       </div>

@@ -3,7 +3,7 @@ class PicturepostsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def index
-    @pictureposts = Picturepost.all
+    @pictureposts = Picturepost.all.order('created_at DESC')
   end
 
   def show
@@ -27,6 +27,10 @@ class PicturepostsController < ApplicationController
     @picturepost.destroy
     flash[:danger] = '写真を削除しました！'
     redirect_to user_path(@picturepost.user)
+  end
+
+  def search
+    @pictureposts = Picturepost.where('content LIKE ?', "%#{params[:search]}%")
   end
 
   private

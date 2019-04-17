@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:create, :destroy]
+  get '/pictureposts/search', to: 'pictureposts#search'
   resources :pictureposts do
     resources :comments, only: [:create]
   end

@@ -1,0 +1,14 @@
+  <div class="new_post_wrapper mt-5 pt-5 text-center"> 
+    <div class="container-fluid">
+      <h1>検索結果</h1>
+      <div class="row grid">
+        <% @pictureposts.each do |picturepost| %>
+          <div class="col-4 img-box">
+            <%= link_to picturepost_path(picturepost) do%>
+              <%= image_tag picturepost.picture.url if picturepost.picture? %>
+            <% end %>
+          </div>
+        <% end %>     
+      </div>
+    </div>
+  </div>
