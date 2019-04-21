@@ -13,13 +13,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'mini_magick', '~> 4.8'
 gem 'bootsnap', '>= 1.1.0', require: false
-
 gem 'jquery-rails'
 gem 'bootstrap', '4.3.1'
 gem 'devise', '4.6.2'
 gem 'omniauth', '1.9.0'
 gem 'omniauth-facebook', '5.0.0'
 gem 'carrierwave'
+gem 'rails-i18n', '~> 5.1'
 
 group :development, :test do
   gem 'sqlite3'
