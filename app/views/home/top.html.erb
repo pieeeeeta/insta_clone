@@ -6,12 +6,10 @@
     </div>
   </div>
 </div> 
-
 <div class="caption text-center">
   <h1>Insta Clone</h1>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
   <% if user_signed_in?%>
     <%= link_to "写真を投稿", new_picturepost_path, class: "btn btn-outline-light btn-lg" %>
   <% else %>
@@ -25,72 +23,9 @@
 </div>
 
 <% if user_signed_in? %>
-
   <div class="instacard-container">
-
     <% @pictureposts.each do |picturepost|%>
-
-      <div class="card">
-        <div class="card-header">        
-          <div class="profile-info">
-            <%= link_to user_path(picturepost.user) do%>
-              <div class="name"><%= picturepost.user.username %></div>
-            <% end %>
-          </div>
-
-          <% if !current_user?(picturepost.user) %>
-            <% if current_user.following?(picturepost.user)%>
-              <%= form_for(current_user.active_relationships.find_by(followed_id: picturepost.user.id),
-                html: { method: :delete }) do |f| %>
-              <%= f.submit "Unfollow", class: "btn btn-outline-secondary btn-sm" %>
-              <% end %>
-            <% else %>
-              <%= form_for(current_user.active_relationships.build) do |f| %>
-              <div><%= hidden_field_tag :followed_id, picturepost.user.id %></div>
-              <%= f.submit "Follow", class: "btn btn-outline-secondary btn-sm" %>
-              <% end %>
-            <% end %>
-          <% end %>
-
-          <div class="time">
-            1h ago
-          </div>
-        </div>
-        <div class="content">
-          <%= link_to picturepost_path(picturepost) do %>
-            <%= image_tag picturepost.picture.url if picturepost.picture? %>
-          <% end %>
-        </div>
-        <div class="card-footer">
-          <%= render partial: 'likes/like', locals: {picturepost: picturepost} %>
-          <div class="description">
-            <p>
-              <span class="username"><%= picturepost.user.username %></span><%= picturepost.content %>
-            </p>
-          </div>
-          <hr />
-
-          <div class="comments">
-            <% picturepost.comments.each do |comment| %>
-              <p>
-                <%= link_to user_path(comment.user) do%>
-                  <span class="username"><%= comment.user.username %></span>
-                <% end %>
-                <%= comment.comment %>
-              </p>
-            <% end %>
-          </div>
-
-          <%= form_for [picturepost, @comment] do |f| %>
-            <%= f.text_field :comment %>
-            <%= f.submit 'コメントする', class:"btn btn-outline-secondary btn-sm" %>
-          <% end%>
-
-        </div>
-
-      </div>
-
+      <%= render partial: 'pictureposts/instacard', locals: {picturepost: picturepost} %>
     <% end %>
-
   </div>
 <% end %>

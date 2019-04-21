@@ -1,14 +1,8 @@
-  <div class="new_post_wrapper mt-5 pt-5 text-center"> 
-    <div class="container-fluid">
-      <h1>New Posts</h1>
-      <div class="row grid">
-        <% @pictureposts.each do |picturepost| %>
-          <div class="col-4 img-box">
-            <%= link_to picturepost_path(picturepost) do%>
-              <%= image_tag picturepost.picture.url if picturepost.picture? %>
-            <% end %>
-          </div>
-        <% end %>     
-      </div>
-    </div>
+<% provide(:title, "NewPosts") %>
+
+<div class="new_post_wrapper mt-5 pt-5 text-center"> 
+  <div class="container-fluid">
+    <h1>New Posts</h1>
+    <%= render partial: 'pictureposts/gridpictures', locals: {pictureposts: @pictureposts}%>
   </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header">        
+    <div class="profile-info">
+      <%= link_to user_path(picturepost.user) do%>
+        <div class="name"><%= picturepost.user.username %></div>
+      <% end %>
+    </div>
+    <% if !current_user?(picturepost.user) %>
+      <%= render partial: 'partials/follow-btn', locals: {user: picturepost.user}%>
+    <% end %>
+  </div>
+  <div class="content">
+    <%= link_to picturepost_path(picturepost) do %>
+      <%= image_tag picturepost.picture.url if picturepost.picture? %>
+    <% end %>
+  </div>
+  <div class="card-footer">
+    <%= render partial: 'likes/like', locals: {picturepost: picturepost} %>
+    <div class="description">
+      <p>
+        <span class="username"><%= picturepost.user.username %></span><%= picturepost.content %>
+      </p>
+    </div>
+    <hr />
+    <%= render partial: 'comments/comment', locals: {picturepost: picturepost}%>
+  </div>
+</div>

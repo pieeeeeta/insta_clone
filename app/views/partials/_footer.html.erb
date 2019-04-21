@@ -1,0 +1,9 @@
+<footer>
+  <div class="row justify-content-center">
+    <% if user_signed_in? %>
+      <%= link_to "写真を投稿する", new_picturepost_path, class: "btn btn-outline-light" %>
+    <% end %>
+    <hr class="socket">
+    &copy; Insta Clone
+  </div>
+</footer>
