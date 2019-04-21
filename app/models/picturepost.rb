@@ -4,4 +4,5 @@ class Picturepost < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
   mount_uploader :picture, PictureUploader
+  validates :picture, presence: true
 end

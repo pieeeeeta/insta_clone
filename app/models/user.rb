@@ -11,10 +11,11 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :likes, dependent: :destroy
   has_many :like_pictureposts, through: :likes, source: :picturepost
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
-
+  validates :name, presence: true
+  validates :username, presence: true
+  
   # Facebook認証
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first

@@ -2,6 +2,7 @@
 
 <div class="new_post_page pt-5 mt-5 text-center">
   <h1>写真を投稿する</h1>
+  <%= render partial: 'partials/error_messages', locals: {object: @picturepost}%>
   <%= form_for(@picturepost) do |f| %>
     <div class="field picture my-3 mt-5">
       <%= f.file_field :picture %>

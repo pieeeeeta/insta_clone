@@ -1,5 +1,5 @@
 class PicturepostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit delete]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
   before_action :correct_user, only: :destroy
 
   def index
@@ -18,9 +18,12 @@ class PicturepostsController < ApplicationController
 
   def create
     @picturepost = Picturepost.new(content: picturepost_params[:content], picture: picturepost_params[:picture], user_id: current_user.id)
-    @picturepost.save
-    flash[:success] = '写真を投稿しました！'
-    redirect_to user_url(current_user)
+    if @picturepost.save
+      flash[:success] = '写真を投稿しました！'
+      redirect_to picturepost_url(@picturepost)
+    else
+      render 'new'
+    end
   end
 
   def destroy

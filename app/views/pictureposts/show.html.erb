@@ -1,6 +1,7 @@
 <% provide(:title, "Picture") %>
 
-<div class="picturepost_show_wrapper pt-5">
+<div class="picturepost_show_wrapper pt-5 mt-3">
+  <%= render 'partials/flash_messages' %>   
   <div class="instacard-container">
     <%= render partial: 'pictureposts/instacard', locals: {picturepost: @picturepost}%>    
   </div>
