@@ -1,4 +1,6 @@
 module ApplicationHelper
+
+  # タイトルをページごとに設定
   def full_title(page_title = '')
     base_title = 'Insta App'
     if page_title.empty?
