@@ -15,7 +15,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
   validates :name, presence: true
   validates :username, presence: true
-  
+
   # Facebook認証
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
@@ -49,7 +49,7 @@ class User < ApplicationRecord
 
   # フォローしているユーザーの投稿と自分自身の投稿すべてを取得 トップページのフィード
   def feed
-    following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    following_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
     Picturepost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id).order('created_at DESC')
   end
 end
