@@ -119,15 +119,17 @@ hr.socket {
       padding: 15px;
       padding-top: 20px;
       .profile-info{
-        display: inline-block;
         .name{
+          display: inline-block;
           font-size: 14px;
           color: #111;
           font-weight: 700;
+          position: relative;
+          top: -8px;
         }
-        .location{
-          font-size: 12px;
-          color: #111;
+        .btn{
+          float: right;
+          display: inline-block;
         }
       }
       .following-btn{
