@@ -1,0 +1,8 @@
+<% provide(:title, "NewPosts") %>
+
+<div class="new_post_wrapper mt-5 pt-5 text-center"> 
+  <div class="container-fluid">
+    <h1>New Posts</h1>
+    <%= render partial: 'pictureposts/gridpictures', locals: {pictureposts: @pictureposts}%>
+  </div>
+</div>

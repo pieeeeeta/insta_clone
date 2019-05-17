@@ -1,0 +1,31 @@
+<% provide(:title, "Home") %>
+
+<div class="landing">
+  <div class="home-wrap">
+    <div class="home-inner">
+    </div>
+  </div>
+</div> 
+<div class="caption text-center">
+  <h1>Insta Clone</h1>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if user_signed_in?%>
+    <%= link_to "写真を投稿", new_picturepost_path, class: "btn btn-outline-light btn-lg" %>
+  <% else %>
+    <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-light btn-lg mb-3 mr-3" %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-light btn-lg mb-3" %><br>
+    <%= link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: "btn btn-outline-light btn-lg mb-4" %><br />
+    テストユーザー<br>
+    email : test@test.com<br>
+    password : testuser
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <div class="instacard-container">
+    <% @pictureposts.each do |picturepost|%>
+      <%= render partial: 'pictureposts/instacard', locals: {picturepost: picturepost} %>
+    <% end %>
+  </div>
+<% end %>

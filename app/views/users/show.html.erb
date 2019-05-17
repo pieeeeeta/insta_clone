@@ -1,0 +1,30 @@
+<% provide(:title, "UserPage") %>
+
+<div class="mypage_wrapper pt-5 mt-5 bg-light">
+  <div class="row">
+    <div class="col-3 plofile_img_wrapper">
+      <div class="profile_img bg-secondary"></div>
+    </div>
+    <div class="col-9">
+      <div class="username mb-2">
+        <%= @user.username %>
+        <% if current_user?(@user) %>
+          <%= link_to "プロフィールを編集", profile_edit_path, class:"btn btn-outline-secondary btn-sm ml-3" %>
+        <% else %>
+          <%= render partial: 'partials/follow-btn', locals: {user: @user}%>
+        <% end %>
+      </div>
+      <div class="user_post_info mb-1">
+        投稿<%= @pictureposts.count %>件  フォロワー<%= @user.followers.count %>人  <%= @user.following.count %>人をフォロー
+      </div>
+      <div class="user_profile_info">
+        <p><%= @user.name %></p>
+        <p><%= @user.self_introduction %></p>
+      </div>
+    </div>
+  </div>
+  <%= render 'partials/flash_messages' %>   
+  <div class="container-fluid">
+    <%= render partial: 'pictureposts/gridpictures', locals: {pictureposts: @pictureposts}%>
+  </div>
+</div>

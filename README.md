@@ -1,24 +1,12 @@
-# README
+【苦労した点】
+・デザインに予想以上に時間がかかった。
+・英語の情報だと理解するのに時間がかかる。
+・時間がなくすべての機能を実装できなかった。
+・テストもかけなかった。
+・ローカルで動くがherokuでエラーを吐き、解決に苦労した。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+【学んだ点】
+・先に頭の中で機能をよく考えて設計してから実装したほうが効率が良い。
+・細かいところに時間使いすぎない。優先順位大切。
+・エラーがでても落ち着いてエラーメッセージに向き合いつづければ解決する。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

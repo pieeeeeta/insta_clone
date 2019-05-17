@@ -1,0 +1,15 @@
+<div class="comments">
+  <% picturepost.comments.each do |comment| %>
+    <p>
+      <%= link_to user_path(comment.user) do%>
+        <span class="username"><%= comment.user.username %></span>
+      <% end %>
+      <%= comment.comment %>
+    </p>
+  <% end %>
+</div>
+
+<%= form_for [picturepost, @comment] do |f| %>
+  <%= f.text_field :comment %>
+  <%= f.submit 'コメントする', class:"btn btn-outline-secondary btn-sm" %>
+<% end%>

@@ -1,0 +1,15 @@
+<% provide(:title, "Post Picture") %>
+
+<div class="new_post_page pt-5 mt-5 text-center">
+  <h1>写真を投稿する</h1>
+  <%= render partial: 'partials/error_messages', locals: {object: @picturepost}%>
+  <%= form_for(@picturepost) do |f| %>
+    <div class="field picture my-3 mt-5">
+      <%= f.file_field :picture %>
+    </div>
+    <div class="field my-4">
+      <%= f.text_area :content, placeholder: "コメントを入力してください..." %>
+    </div>
+    <%= f.submit "Post", class: "btn btn-secondary btn-lg" %>
+  <% end %>
+</div>

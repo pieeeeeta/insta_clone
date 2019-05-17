@@ -1,0 +1,268 @@
+/* COMMON */
+html {
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+  color: #505962;
+  word-wrap: break-word;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.alert {
+  margin: 0;
+}
+
+/* TOP IMAGE */
+.caption {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 30%;
+  z-index: 1;
+  color: white;
+  h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: .3rem;
+    text-shadow: .1rem .1rem .8re, black;
+    padding-bottom: 1rem;
+  }
+  h3 {
+    font-size: 2rem;
+    text-shadow: 0.1rem 0.1rem 0.5rem black;
+    padding-bottom: 1.6rem;
+  }
+}
+
+.btn-lg {
+  border-width: medium;
+  border-radius: 0;
+  padding: .6rem 1.3rem;
+  font-size: 1.1;
+}
+
+.landing {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: table;
+  z-index: -1;
+}
+
+/*--- Fixed Top Image Section --*/
+.home-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home-inner {
+  background-image: image-url('top_image.jpg');
+  position: fixed;
+  display: table;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  background-color: #40474e;
+  color: white;
+  padding: 2rem 0;
+  img {
+    height: 3rem;
+    margin: 1.5rem 0;
+  }
+  a {
+    color: white;
+  }
+}
+
+hr.socket {
+  width: 100%;
+  border-top: .2rem solid #666b71;
+  margin-top: 3rem;
+}
+
+/*---Instagram card --*/
+.instacard-container{
+  width: 100%;
+  background:#eee;
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  .card{
+    width: 90%;
+    max-width: 700px;
+    background: #fff;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    .card-header{
+      padding: 15px;
+      padding-top: 20px;
+      .profile-info{
+        .name{
+          display: inline-block;
+          font-size: 14px;
+          color: #111;
+          font-weight: 700;
+          position: relative;
+          top: -8px;
+        }
+        .btn{
+          float: right;
+          display: inline-block;
+        }
+      }
+      .following-btn{
+        display: inline-block;
+        position: relative;
+        top: -22px;
+        left:7px;
+      }
+      .delete-btn{
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+      }
+      .time{
+        display: inline-block;
+        float: right;
+        font-size: 12px;
+        top: 5px;
+        position: relative; 
+      }
+    }
+    .content img{
+      width: 100%;
+    }
+    .card-footer{
+      padding: 15px;
+      box-sizing: border-box;
+      .description{
+        margin-bottom: 10px;
+      }
+      p{
+        font-size: 14px;
+        margin: 0;
+        padding: 0 0 5px 0;
+      }
+      .username{
+        font-weight: 700;
+        margin-right: 5px;
+      }
+      .likes{
+        display: inline-block;
+        color:#111;
+        font-style: 12px;
+        padding-bottom: 15px;
+        margin-right: 8px;
+      }
+      .heart{
+        display: inline-block;
+        width: 8%;
+        font-size: 20px;
+      }
+      a{
+        color: #000;
+      }
+      .form{
+        padding-top: 15px;
+        .add-comment{
+          display: inline-block;
+          width: 60%;
+          .input{
+            width: 100%;
+            padding: 5px;
+            font-weight: 16px;
+            border: 0px solid #fff;
+          }
+        }
+      }
+      .hr{
+        padding: 0;
+      }
+    }
+  }
+}
+
+/*--- UserPage --*/
+.mypage_wrapper{
+  .plofile_img_wrapper{
+    position: relative;
+    .profile_img{
+      width:75px;
+      height: 75px;
+      border-radius: 50%;
+      position: absolute;
+      right: 10px;
+      top: 10%;
+    }
+  }
+  .username{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+/*--- gridpicture --*/
+.mypage_wrapper, .new_post_wrapper{
+  img {
+    width: 100%;
+    height: 33.333333vw;  
+    object-fit: cover;
+  }
+  
+  .grid .img-box{
+    padding: 0 !important;
+    overflow: hidden;
+    background:#000;
+  }
+  
+  .grid img-box{
+    position: relative;
+    text-align: center;
+  }
+  
+  .grid .picture-text {
+    font-size: 1.3em;
+    width: 100%;
+    color: #fff;
+    position: absolute;
+    top:50%;
+    left: 85%;
+    transform: translate(-50%,-50%);
+    opacity: 0.8;
+  }
+  
+  .grid img:hover {
+    transform: scale(1.2);
+    transition-duration: 0.8s;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+/*--- follow unfollow btn --*/
+.edit_relationship,
+.new_relationship{
+  display: inline-block;
+}
