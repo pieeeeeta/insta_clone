@@ -15,7 +15,7 @@ gem 'mini_magick', '4.9.3'
 gem 'bootsnap', require: false
 gem 'jquery-rails', '4.3.3'
 gem 'bootstrap', '4.3.1'
-gem 'devise', '4.6.2'
+gem 'devise', '4.7.1'
 gem 'omniauth', '1.9.0'
 gem 'omniauth-facebook', '5.0.0'
 gem 'carrierwave', '1.3.1'
