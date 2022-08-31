@@ -16,7 +16,7 @@ gem 'bootsnap', require: false
 gem 'jquery-rails', '4.3.3'
 gem 'bootstrap', '4.3.1'
 gem 'devise', '4.6.2'
-gem 'omniauth', '1.9.0'
+gem 'omniauth', '1.9.2'
 gem 'omniauth-facebook', '5.0.0'
 gem 'carrierwave', '1.3.1'
 gem 'rails-i18n', '5.1.3'
